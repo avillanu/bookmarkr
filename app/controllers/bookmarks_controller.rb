@@ -13,7 +13,8 @@ class BookmarksController < ApplicationController
       redirect_to bookmarks_path
     else
       flash[:error] = @bookmark.errors.full_messages.join(". ")
-      render :new
+      @bookmarks = Bookmark.where(user_id: current_user.id).order(category_id: :desc)
+      render :index
     end
   end
 

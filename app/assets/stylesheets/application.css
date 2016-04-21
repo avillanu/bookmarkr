@@ -1,0 +1,30 @@
+#logo {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+#rcorners4 {
+    border-radius: 15px 50px 30px 5px;
+    background: #73AD21;
+    padding: 20px;
+    width: 150px;
+    height: 250px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#bar {
+    width: 100%;
+  	float: left;
+  	margin: 0 0 1em 0;
+  	padding: 0;
+    height: 20px;
+  	background-color: #73AD21;
+  	border-bottom: 1px solid #ccc;
+}
+
+#blue a{ font-family: 'Montserrat', sans-serif;color: #69D2E7; text-decoration: none;}
+#blue  a:visited { font-family: 'Montserrat', sans-serif;color: #69D2E7; text-decoration: none;}
+#blue  a:hover { font-family: 'Montserrat', sans-serif; color: #69D2E7; text-decoration: underline;}
+a{ color: #000000; font-family: 'Montserrat', sans-serif;text-decoration: none;}
+a:visited { color: #000000; font-family: 'Montserrat', sans-serif;text-decoration: none;}
+a:hover { color: #000000; font-family: 'Montserrat', sans-serif;text-decoration: underline;}

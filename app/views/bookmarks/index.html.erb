@@ -26,6 +26,7 @@
   <span id="blue"><a  href="<%= bookmark.url %>"target="blank"><%= bookmark.title %></A> </span>-
   <%= bookmark.description %><BR>
 <% end %>
+    <% unless @results.nil? %>
     <% unless @results.empty? %>
     <h3> Search Results </h3>
     <% @results.each do |result| %>
@@ -35,6 +36,6 @@
     <a href="<%= Bookmark.find_by(id: result.searchable_id).url %>" target="blank">
     <%=  Bookmark.find_by(id: result.searchable_id).title %></A></span> -
     <%=  Bookmark.find_by(id: result.searchable_id).description %><BR>
-
+  <% end %>
   <% end %>
   <% end %>

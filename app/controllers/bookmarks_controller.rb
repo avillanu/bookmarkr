@@ -1,5 +1,7 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
+  require 'dotenv'
+  Dotenv.load
   def index
     @bookmark = Bookmark.new
     @bookmarks = Bookmark.where(user_id: current_user.id).order(category_id: :desc)
@@ -9,10 +11,10 @@ class BookmarksController < ApplicationController
 
   def create
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "85W8RqiYit0SLrp9g7Qqxc9KG"
-      config.consumer_secret     = "rFlsmKAxWrLmn3T0HvpBLJxYG59Iop56eB66KmS9ISuL5KhWXK"
-      config.access_token        = "1360704998-Ujjoi2oSarRbxVeRd7p53X9C3XL3wQKLTrMQwFI"
-      config.access_token_secret = "lEXQdsnkWbB77BXtLqSZ7IfmdBzFfnrUFUIBZgAbtT8jE"
+      config.consumer_key        = ENV['CONSUMER_KEY']
+      config.consumer_secret     = ENV['CONSUMER_SECRET']
+      config.access_token        = ENV['ACCESS_TOKEN']
+      config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
     end
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user = current_user

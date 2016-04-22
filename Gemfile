@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'twitter'
 gem 'pg_search'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
 # Use postgresql as the database for Active Record

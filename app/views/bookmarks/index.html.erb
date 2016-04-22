@@ -26,8 +26,8 @@
   <span id="blue"><a  href="<%= bookmark.url %>"target="blank"><%= bookmark.title %></A> </span>-
   <%= bookmark.description %><BR>
 <% end %>
-    <% unless @results.nil? %>
-    <h3>Search Results</h3>
+    <% unless @results.empty? %>
+    <h3> Search Results </h3>
     <% @results.each do |result| %>
     <%= link_to "Edit", edit_bookmark_path(Bookmark.find_by(id: result.searchable_id)), method: :get %>
     <%= link_to "Delete", bookmark_path(Bookmark.find_by(id: result.searchable_id)), method: :delete %>

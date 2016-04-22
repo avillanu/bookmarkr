@@ -1,22 +1,40 @@
-<%= form_for @bookmark do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %>
+<div id="rcorners5">
+  <span id="inline-block">
+    <%= form_for @bookmark do |f| %>
+    <div id="inline">
+      <%= f.label :title %>:
+      <%= f.text_field :title %>
+    </div><div id="inline">
+      <%= f.label :url %>:
+      <%= f.text_field :url %>
+    </div><div id="inline">
+      <%= f.label :description %>:
+      <%= f.text_field :description %>
+    </div><div id="inline">
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Category.where(user_id: current_user.id).pluck(:name, :id) %>
+    </div>
+    <%= f.submit %>
+    <% end %>
+  </span>
+</div>
 
-  <%= f.label :url %>:
-  <%= f.text_field :url %>
-
-  <%= f.label :description %>:
-  <%= f.text_field :description %>
-
-  <%= f.label :category_id %>
-  <%= f.select :category_id, Category.where(user_id: current_user.id).pluck(:name, :id) %>
-
-  <%= f.submit %>
-<% end %>
 <% @bookmarks.each do |bookmark| %>
-<%= link_to "Edit", edit_bookmark_path(bookmark), method: :get %>
-<%= link_to "Delete", bookmark_path(bookmark), method: :delete %>
-<%= Category.find_by(id: bookmark.category_id).name %>
-<span id="blue"><a  href="<%= bookmark.url %>"target="blank"><%= bookmark.title %></A> </span>-
-<%= bookmark.description %><BR>
+  <%= link_to "Edit", edit_bookmark_path(bookmark), method: :get %>
+  <%= link_to "Delete", bookmark_path(bookmark), method: :delete %>
+  <%= Category.find_by(id: bookmark.category_id).name %>
+  <span id="blue"><a  href="<%= bookmark.url %>"target="blank"><%= bookmark.title %></A> </span>-
+  <%= bookmark.description %><BR>
 <% end %>
+    <% unless @results.nil? %>
+    <h3>Search Results</h3>
+    <% @results.each do |result| %>
+    <%= link_to "Edit", edit_bookmark_path(Bookmark.find_by(id: result.searchable_id)), method: :get %>
+    <%= link_to "Delete", bookmark_path(Bookmark.find_by(id: result.searchable_id)), method: :delete %>
+    <span id="blue">
+    <a href="<%= Bookmark.find_by(id: result.searchable_id).url %>" target="blank">
+    <%=  Bookmark.find_by(id: result.searchable_id).title %></A></span> -
+    <%=  Bookmark.find_by(id: result.searchable_id).description %><BR>
+
+  <% end %>
+  <% end %>

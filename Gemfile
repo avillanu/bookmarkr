@@ -4,10 +4,20 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 gem 'twitter'
+
 gem 'pg_search'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+end
+
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets

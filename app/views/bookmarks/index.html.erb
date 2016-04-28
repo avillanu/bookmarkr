@@ -18,7 +18,7 @@
     <% end %>
   </span>
 </div>
-
+<div id="rcorners6">
 <% @bookmarks.each do |bookmark| %>
   <%= link_to "Edit", edit_bookmark_path(bookmark), method: :get %>
   <%= link_to "Delete", bookmark_path(bookmark), method: :delete %>
@@ -35,7 +35,7 @@
     <span id="blue">
     <a href="<%= Bookmark.find_by(id: result.searchable_id).url %>" target="blank">
     <%=  Bookmark.find_by(id: result.searchable_id).title %></A></span> -
-    <%=  Bookmark.find_by(id: result.searchable_id).description %><BR>
+    <%=  Bookmark.find_by(id: result.searchable_id).description %><BR></div>
   <% end %>
   <% end %>
   <% end %>

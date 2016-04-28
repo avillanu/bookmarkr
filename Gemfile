@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 gem 'twitter'
-
+gem 'dotenv'
 gem 'pg_search'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails_12factor', group: :production

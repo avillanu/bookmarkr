@@ -37,7 +37,8 @@ body {
     padding: 20px;
     min-width: 150px;
     max-width:60%;
-    height: 125px;
+    min-height: 125px;
+    max-height: 800px;
     max-height:80%;
     font-family: 'Montserrat', sans-serif;
 }

@@ -8,21 +8,21 @@
       <%= f.label :url %>:
       <%= f.text_field :url %>
     </div><div id="inline">
-      <%= f.label :description %>:
+      <%= f.label :description, "Notes" %>:
       <%= f.text_field :description %>
     </div><div id="inline">
       <%= f.label :category_id %>
       <%= f.select :category_id, Category.where(user_id: current_user.id).pluck(:name, :id) %>
     </div>
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-success" %>
     <% end %>
   </span>
 </div>
 <div id="rcorners6">
 <% @bookmarks.each do |bookmark| %>
-  <%= link_to "Edit", edit_bookmark_path(bookmark), method: :get %>
-  <%= link_to "Delete", bookmark_path(bookmark), method: :delete %>
-  <%= Category.find_by(id: bookmark.category_id).name %>
+  <%= link_to "Edit", edit_bookmark_path(bookmark), method: :get %>&nbsp&nbsp
+  <%= link_to "Delete", bookmark_path(bookmark), method: :delete %>&nbsp&nbsp
+  <%= Category.find_by(id: bookmark.category_id).name %>&nbsp&nbsp
   <span id="blue"><a  href="<%= bookmark.url %>"target="blank"><%= bookmark.title %></A> </span>-
   <%= bookmark.description %><BR>
 <% end %>

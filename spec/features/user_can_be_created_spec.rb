@@ -7,8 +7,8 @@ feature "user can signup and login" do
     fill_in "Password", with: 'password'
     fill_in "Password confirmation", with: 'password'
     click_button "Sign up"
-    expect(page).to have_content "Description"
+    expect(page).to have_content "Notes"
     click_link "Sign out"
-    page.should_not have_content("Description")
+    page.should_not have_content("Notes")
   end
 end

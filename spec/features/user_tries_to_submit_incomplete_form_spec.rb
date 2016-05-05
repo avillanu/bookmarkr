@@ -9,7 +9,7 @@ feature "user tries to submit incomplete form" do
     fill_in "Password", with: 'password'
     click_button "Log in"
     fill_in "Url", with: "http://wwww.reddit.com"
-    fill_in "Description", with: "A collection of sites. Users upvote and downvote sites"
+    fill_in "Notes", with: "A collection of sites. Users upvote and downvote sites"
     select("social media", from: 'Category')
     click_button "Create Bookmark"
     expect(page).to have_content("Title can't be blank")

@@ -10,7 +10,7 @@ feature "user successfully creates and deletes bookmark" do
     click_button "Log in"
     fill_in "Title", with: "Reddit"
     fill_in "Url", with: "http://wwww.reddit.com"
-    fill_in "Description", with: "A collection of sites. Users upvote and downvote sites"
+    fill_in "Notes", with: "A collection of sites. Users upvote and downvote sites"
     select("social media", from: 'Category')
     click_button "Create Bookmark"
     click_link "Delete"
